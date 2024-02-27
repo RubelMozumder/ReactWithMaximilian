@@ -1,0 +1,18 @@
+.nav-header {
+  position: fixed;
+  margin: 0;
+  top: 0;
+  left: 0;
+  height: 50px;
+  width: 100%;
+  z-index: 100;
+  background: aqua;
+}
+
+.nav-header .nav-container{
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
