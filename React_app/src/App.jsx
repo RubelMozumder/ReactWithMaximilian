@@ -1,61 +1,35 @@
 import { CORE_CONCEPTS } from "./data.js";
-import reactCoreConcept from "./assets/react-core-concepts.png";
 import "./App.css";
 
-const reactDescriptors = ['Fundamental', 'Component-based', 'Declarative', 'Learn Once, Write Anywhere']
-function genRandomInt(max) {
-  return Math.floor(Math.random() * (max + 1))
-}
-
-function Header() {
-  const rendDesc = reactDescriptors[genRandomInt(reactDescriptors.length)]
-
-  return (
-    <header>
-      <img src={reactCoreConcept} alt="Stylized atom" />
-      <h1>React Essentials</h1>
-      <p>
-        {rendDesc} React concepts you will need for almost any app you are
-        going to build!
-      </p>
-    </header>
-  );
-}
-
-function ReactConcept(props) {
-  return (
-    <li>
-      <h2>{props.title}</h2>
-      <img src={props.img} alt="React logo" />
-      <p>{props.concept}</p>
-    </li>
-  );
-}
-
+import Header from "./components/Header.jsx";
+import ReactConcept from "./components/ReactConcept.jsx";
+import TabButton from "./components/TabButton.jsx";
 
 function App() {
   // const [count, setCount] = useState(0)
   return (
     <div id="root">
+      <header>
+        <h1>Shaurika Mozumder</h1>
+      </header>
       <Header />
       <main>  
         <section id="core_concepts">
           <ul>
-            <ReactConcept title={CORE_CONCEPTS[0].title} 
-                          img={CORE_CONCEPTS[0].image} 
-                          concept={CORE_CONCEPTS[0].description} />
-            <ReactConcept title={CORE_CONCEPTS[1].title} 
-                          img={CORE_CONCEPTS[1].image} 
-                          concept={CORE_CONCEPTS[1].description} />
-            <ReactConcept title={CORE_CONCEPTS[2].title} 
-                          img={CORE_CONCEPTS[2].image} 
-                          concept={CORE_CONCEPTS[2].description} />
-            <ReactConcept title={CORE_CONCEPTS[3].title} 
-                          img={CORE_CONCEPTS[3].image} 
-                          concept={CORE_CONCEPTS[3].description} />
+            <ReactConcept {...CORE_CONCEPTS[0]} />
+            <ReactConcept {...CORE_CONCEPTS[1]} />
+            <ReactConcept {...CORE_CONCEPTS[2]} />
+            <ReactConcept {...CORE_CONCEPTS[3]} />
           </ul>
         </section>
-
+        <section id="examples">
+          <manu>
+            <TabButton>Components</TabButton>
+            <TabButton>JSX</TabButton>
+            <TabButton>Props</TabButton>
+            <TabButton>State</TabButton>
+          </manu>
+        </section>
         {/* <reactConcept title="Learn Once, Write Anywhere" img={reactLogo} concept="Learn Once, Write Anywhere" />
         <reactConcept title="Fundamental" img={reactLogo} concept="Fundamental" /> */}
       </main>
@@ -67,4 +41,4 @@ function App() {
 }
 
 export default App;
-export { Header, ReactConcept };
+export { ReactConcept };
