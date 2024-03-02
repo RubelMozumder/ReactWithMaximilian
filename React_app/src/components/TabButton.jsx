@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import './TabButton.css';
 
-export default function TabButton({ children, onClick, isSelected }) {
+export default function TabButton({ children, isSelected, ...props }) {
   return (
     <li className="example-btn">
-      <button className={isSelected ? 'active' : null} onClick={onClick}>
+      <button className={isSelected ? 'active' : null} {...props}>
         {children}
       </button>
     </li>

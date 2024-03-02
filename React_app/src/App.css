@@ -1,9 +1,3 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
 
 #core_concepts ul {
   list-style: none;
@@ -25,15 +19,7 @@
   background-color: #782bf3aa;
 }
 
-#examples ul {
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2em;
-  margin-top: 2em;
-}
+
 
 #tab-content h3 {
   color: #ffffff;
