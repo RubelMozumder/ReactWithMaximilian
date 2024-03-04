@@ -3,8 +3,8 @@ import './App.css';
 
 import Header from './components/Header.jsx';
 import ReactConcept from './components/ReactConcept.jsx';
-import CoreConcepts from './components/CoreConcepts.jsx';
-import ConceptExample from './components/ConceptExample.jsx';
+import CoreConcepts from './components/reactConcept/CoreConcepts.jsx';
+import ConceptExample from './components/conceptExample/ConceptExample.jsx';
 
 function App() {
   return (
