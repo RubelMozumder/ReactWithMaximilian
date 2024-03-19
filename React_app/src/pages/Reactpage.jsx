@@ -6,7 +6,7 @@ import ConceptExample from '../components/reactfundamental/conceptExample/Concep
 export default function Reactpage() {
 
     return (
-    <div>
+    <>
         <header>
             <h1>Shaurika Mozumder</h1>
         </header>
@@ -17,6 +17,6 @@ export default function Reactpage() {
         </main>
         <p className="read-the-docs">Click on the Vite and React logos to learn more</p>  
         
-    </div>
+    </>
   )
 }

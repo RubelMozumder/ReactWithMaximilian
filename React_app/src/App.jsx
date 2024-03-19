@@ -9,14 +9,12 @@ import Reactpage from './pages/Reactpage.jsx';
 function App() {
   return (
     <Fragment>
-      <div id="root">
         <Navbar />
         <Routes>
           <Route path='/' element={<Reactpage />}></Route>
-          {/* <Route path='/TicTacToe' element={<TicTacToe />}></Route> */}
+          <Route path='/TicTacToe' element={<TicTacToe />}></Route>
           <Route path='/Reactpage' element={<Reactpage />}></Route>
         </Routes>
-      </div>
     </Fragment>
   );
 }
