@@ -12,6 +12,7 @@ background: linear-gradient(40deg, #ea00ff, #ea00ff, #03d5ff, #03d5ff);
 -webkit-text-fill-color: transparent;
 filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
 }
+
 header p {
 margin: 0;
 font-size: 1.25rem;

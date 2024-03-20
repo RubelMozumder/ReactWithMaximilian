@@ -1,5 +1,5 @@
 import './TicTacToe.css';
-import TicTacToeBorad from '../components/tictactoe/TicTacToeBoard.jsx';
+import TicTacToeContainer from '../components/tictactoe/TicTacToeContainer.jsx';
 import PropTypes from 'prop-types';
 
 export default function TicTacToe() {
@@ -9,7 +9,7 @@ export default function TicTacToe() {
             <img src="game-logo.png" alt="Hands on TicTacToe with React." />
             <h1>Tic-Tac-Toe</h1>
         </header>
-        <TicTacToeBorad />
+        <TicTacToeContainer />
     </div>
   )
 }
@@ -20,4 +20,4 @@ TicTacToe.propTypes = {
   image: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
 };
-//
+

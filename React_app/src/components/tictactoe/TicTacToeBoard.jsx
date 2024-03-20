@@ -1,30 +1,26 @@
-import Player from './player/Player';
-import './TicTacToeBoard.css';
+import './TicTacToeBoard.css'
 
-export default function TicTacToeBorad() {
-    // function 
+
+const col = 3
+const row = 3
+
+let squares = []
+
+for (let i = 0; i < row; i++){
+    const row_li = []
+    for (let j = 0; j < col; j++){
+        // const index = i * col + j
+        row_li.push(<li><button>{j}</button></li>)
+    }
+    squares.push(<ol id="">{row_li}</ol>)
+}
+
+export default function TicTacToeBoard() {
     return (
-        <div id="game-container">
-            <ol id="players">
-                <Player name='Player 1' symbol='X'/>
-                <Player name='Player 2' symbol='O'/>
-            </ol>
-            <div id="square-board">
-
-            </div>
-                
+        <div id='board-diagram'>
+            <ul id="game-board">
+                {squares}
+            </ul>
         </div>
     )
 }
-
-
-/*
-<gameContainer>
-    <>
-        <player1>
-        <player2>
-        <gameBoard> //With player contributions
-    <>
-    <result> // Cell cords, player logo
-    <result>
-*/

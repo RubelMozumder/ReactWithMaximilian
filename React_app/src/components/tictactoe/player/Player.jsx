@@ -6,7 +6,6 @@ export default function Player({name, symbol}){
 
     const [initName, setName] = useState(name);
     const [isEditing, editDone] = useState(false);
-    let buttonName = 'Edit';
 
     let playerName;
     playerName = <span className='player-name'>{initName}</span>;
