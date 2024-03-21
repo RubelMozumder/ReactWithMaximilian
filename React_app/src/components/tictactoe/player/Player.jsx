@@ -2,13 +2,12 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import './Player.css';
 
-export default function Player({name, symbol}){
+export default function Player({...props}){
 
-    const [initName, setName] = useState(name);
     const [isEditing, editDone] = useState(false);
 
     let playerName;
-    playerName = <span className='player-name'>{initName}</span>;
+    playerName = <span className='player-name'>{props.name}</span>;
     function editPlayer(){
         if (!isEditing) {
             editDone((edit)=>!edit);
@@ -19,12 +18,12 @@ export default function Player({name, symbol}){
         }
     }
     function renamePlayer(event){
-        setName(()=>event.target.value);
+        props.rename(()=>event.target.value);
 
     }
 
     if (isEditing){
-        playerName = <input type='text' required value={initName} onChange={renamePlayer}/>
+        playerName = <input type='text' required value={props.name} onChange={renamePlayer}/>
     }
 
     return (
@@ -32,7 +31,7 @@ export default function Player({name, symbol}){
             <span className='ind-player'>
                 {playerName}
                 {/* <span className='player-name'>{name}</span> */}
-                <span className='player-symbol'>{symbol}</span>
+                <span className='player-symbol'>{props.symbol}</span>
                 <button onClick={editPlayer}>{isEditing? 'Save' : 'Edit'}</button>
 
             </span>
@@ -42,5 +41,6 @@ export default function Player({name, symbol}){
 
 Player.propTypes = {
     name: PropTypes.string.isRequired,
-    symbol: PropTypes.string.isRequired
+    symbol: PropTypes.string.isRequired,
+    rename: PropTypes.func.isRequired
 }

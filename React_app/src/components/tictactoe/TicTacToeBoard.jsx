@@ -1,26 +1,48 @@
 import './TicTacToeBoard.css'
-
+import PropTypes from 'prop-types'
+import { useState } from 'react'
 
 const col = 3
 const row = 3
-
 let squares = []
+let activeSymbol = 'X'
 
-for (let i = 0; i < row; i++){
-    const row_li = []
-    for (let j = 0; j < col; j++){
-        // const index = i * col + j
-        row_li.push(<li><button>{j}</button></li>)
-    }
-    squares.push(<ol id="">{row_li}</ol>)
+function handleClick(setSquare, event){
+    event.target.innerHTML = activeSymbol
+    const newSquare = [...squares].map((row) => [...row])
+    
+    setSquare(newSquare)
 }
 
-export default function TicTacToeBoard() {
+const symbols = {pl1_sym : 'X',
+                 pl2_sym : 'O'
+                }
+
+export default function TicTacToeBoard({...props}) {
+    const [initSquare, setSquare] = useState(squares)
+
+    const turnPly = props.activePl == 1? 2 : 1
+    activeSymbol = turnPly == 1? symbols.pl1_sym : symbols.pl2_sym
+
+    for (let rowInd = 0; rowInd < row; rowInd++){
+        const row_li = []
+        for (let colInd = 0; colInd < col; colInd++){
+            row_li.push(<li key={colInd} ><button onClick={(event) => handleClick(setSquare, event)}>{null}</button></li>)
+        }
+        squares.push(<ol key={rowInd}>{row_li}</ol>)
+    }
+    console.log(' #### : ', initSquare)
     return (
         <div id='board-diagram'>
-            <ul id="game-board">
-                {squares}
-            </ul>
+            <ol id="game-board">
+                {initSquare}
+            </ol>
         </div>
     )
+}
+
+
+TicTacToeBoard.propTypes = {
+    activePl: PropTypes.number.isRequired,
+    setPlayer: PropTypes.func.isRequired
 }
