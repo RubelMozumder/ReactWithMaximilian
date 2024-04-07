@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import reactCoreConceptpng from '../../../../public/react-core-concepts.png';
+//import reactCoreConceptpng from 'react-core-concepts.png';
 import './Header.css';
 
 const reactDescriptors = [
@@ -20,7 +20,7 @@ export default function Header({h1_title="React Essentials",
 
   return (
     <header>
-      <img src={reactCoreConceptpng} alt="Stylized atom" />
+      <img src={'react-core-concepts.png'} alt="Stylized atom" />
       <h1>React {h1_title}</h1>
       <p>{rendDesc} {p_desc}</p>
     </header>

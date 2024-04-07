@@ -2,16 +2,27 @@ import './TicTacToeBoard.css'
 import PropTypes from 'prop-types'
 import { useState } from 'react'
 
-const col = 3
-const row = 3
-let squares = []
-let activeSymbol = 'X'
+// const col = 3
+// const row = 3
+// let squares = []
+// let activeSymbol = 'X'
 
-function handleClick(setSquare, event){
+const squares = [[null, null, null],
+                 [null, null, null],
+                 [null, null, null]]        
+
+function handleClick(setSquare, event, activeSymbol, setPlayer){
+    if (event.target.innerHTML == null){
+        return
+    }
+    else{
+
     event.target.innerHTML = activeSymbol
     const newSquare = [...squares].map((row) => [...row])
-    
+    console.log(' #### from handleClick : ', newSquare)   
     setSquare(newSquare)
+    setPlayer()
+    }
 }
 
 const symbols = {pl1_sym : 'X',
@@ -22,20 +33,18 @@ export default function TicTacToeBoard({...props}) {
     const [initSquare, setSquare] = useState(squares)
 
     const turnPly = props.activePl == 1? 2 : 1
-    activeSymbol = turnPly == 1? symbols.pl1_sym : symbols.pl2_sym
+    const activeSymbol = turnPly == 1? symbols.pl1_sym : symbols.pl2_sym
 
-    for (let rowInd = 0; rowInd < row; rowInd++){
-        const row_li = []
-        for (let colInd = 0; colInd < col; colInd++){
-            row_li.push(<li key={colInd} ><button onClick={(event) => handleClick(setSquare, event)}>{null}</button></li>)
-        }
-        squares.push(<ol key={rowInd}>{row_li}</ol>)
-    }
-    console.log(' #### : ', initSquare)
+    console.log(' #### from : ', initSquare)
     return (
         <div id='board-diagram'>
             <ol id="game-board">
-                {initSquare}
+                {squares.map((row, rowInd) => 
+                <ol key={rowInd}>{row.map((col, colInd) => 
+                    <li key={colInd}>
+                        <button onClick={(event) => handleClick(setSquare, event, activeSymbol, ()=>props.setPl(turnPly))}></button>
+                    </li>)}
+                </ol>)}
             </ol>
         </div>
     )
@@ -44,5 +53,6 @@ export default function TicTacToeBoard({...props}) {
 
 TicTacToeBoard.propTypes = {
     activePl: PropTypes.number.isRequired,
-    setPlayer: PropTypes.func.isRequired
+    setPlayer: PropTypes.func.isRequired,
+    setPl: PropTypes.func.isRequired
 }
