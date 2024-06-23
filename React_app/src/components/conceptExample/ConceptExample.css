@@ -1,9 +1,0 @@
-#examples ul {
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2em;
-    margin-top: 2em;
-  }
