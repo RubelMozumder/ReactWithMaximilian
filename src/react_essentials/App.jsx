@@ -1,16 +1,41 @@
+import Header from "./components/header";
+import { ExampleContents } from "./components/exampleContents";
+import ConceptComponentsUl from "./components/reactCoreConceptSec";
+// function CoreConcept(props) {
+//   return (
+//     <li id={props.id}>
+//       <img src={props.image} alt={props.title} />
+//       <h3>{props.title}</h3>
+//       <p>{props.description}</p>
+//     </li>
+//   );
+// }
+// function ConceptComponentsUl({ conceptList }) {
+//   let conceptComponentsAssemble = [];
+
+//   for (let i = 0; i < conceptList.length; i++) {
+//     conceptComponentsAssemble.push(
+//       <CoreConcept key={i} {...conceptList[i]} id={i} />
+//     );
+//   }
+//   return <ul>{conceptComponentsAssemble}</ul>;
+// }
+
+// console.log(" Hello ", ConceptComponents);
+// export default () => {
 function App() {
   return (
     <div>
-      <header>
-        <img src="src/assets/react-core-concepts.png" alt="Stylized atom" />
-        <h1>React Essentials</h1>
-        <p>
-          Fundamental React concepts you will need for almost any app you are
-          going to build!
-        </p>
-      </header>
+      <Header />
       <main>
-        <h2>Time to get started!</h2>
+        <section id="core-concepts">
+          <h2>Core Concept</h2>
+          <ConceptComponentsUl />
+        </section>
+        <section id="examples">
+          <h2>EXAMPLES</h2>
+          <ExampleContents />
+        </section>
       </main>
     </div>
   );
