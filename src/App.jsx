@@ -1,6 +1,6 @@
 import Header from "./react_essentials/components/header";
 import { ExampleContents } from "./react_essentials/components/exampleContents";
-import ConceptComponentsUl from "./react_essentials/components/reactCoreConceptSec";
+import ConceptComponentsUl from "./react_essentials/components/coreConcepts";
 
 function App() {
   return (
