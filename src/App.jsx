@@ -1,22 +1,20 @@
-import Header from "./react_essentials/components/header";
-import { ExampleContents } from "./react_essentials/components/exampleContents";
-import ConceptComponentsUl from "./react_essentials/components/coreConcepts";
-
+import Essentials from "./react_essentials/essentials";
+import DeepDivePage from "./react_deep_drive/deepDrivePage";
+import Navbar from "./navbar";
+import "./navbar.css";
+import { Routes, Route } from "react-router-dom";
 function App() {
+  console.log(window.location);
   return (
-    <div>
-      <Header />
-      <main>
-        <section id="core-concepts">
-          <h2>Core Concept</h2>
-          <ConceptComponentsUl />
-        </section>
-        <section id="examples">
-          <h2>EXAMPLES</h2>
-          <ExampleContents />
-        </section>
-      </main>
-    </div>
+    <>
+      <Navbar id="nav" />
+      <Routes>
+        <Route path="/" element={<Essentials />} />
+        <Route path="/essentials" element={<Essentials />} />
+        <Route path="/tic-tac-toe" element={<DeepDivePage />} />
+      </Routes>
+      {/* <Essentials />; */}
+    </>
   );
 }
 
