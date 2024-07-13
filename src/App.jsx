@@ -1,7 +1,6 @@
 import Essentials from "./react_essentials/essentials_page";
 import DeepDivePage from "./tic_tac_toe/tic_tac_toe_page";
-import Navbar from "./navbar";
-import "./navbar.css";
+import Navbar from "./components/navbar";
 import { Routes, Route } from "react-router-dom";
 function App() {
   return (

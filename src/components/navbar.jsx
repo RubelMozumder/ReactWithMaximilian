@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import "./navbar.css";
+
 function Navbar({ children, ...props }) {
   return (
     <nav id={props.id}>
