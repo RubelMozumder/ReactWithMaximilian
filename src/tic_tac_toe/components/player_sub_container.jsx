@@ -1,30 +1,57 @@
 import "../tic_tac_toe.css";
+import BoardCell from "./BoardCell";
 import Player from "./player";
 import { useState } from "react";
-export default function BoardContainerWithPlayerSubContainer() {
-  const [plr_name1, set_plr_name1] = useState("Player-1");
-  const [plr_name2, set_plr_name2] = useState("Player-2");
-  const [isEditing1, setEditMode1] = useState(false);
-  const [isEditing2, setEditMode2] = useState(false);
 
+const gameState = {
+  activeSymbol: null,
+  X: "Player-1", // symbol: X
+  O: "Player-2", // symbol: O
+};
+
+let gameOverview = {
+  X: {
+    row: { 0: [], 1: [], 2: [] },
+    col: { 0: [], 1: [], 2: [] },
+    xx: [],
+    turns: [],
+  },
+  O: {
+    col: { 0: [], 1: [], 2: [] },
+    row: { 0: [], 1: [], 2: [] },
+    xx: [],
+    turns: [],
+  },
+  player_log: {},
+  winner: null,
+  gameOver: false,
+};
+
+export default function BoardContainerWithPlayerSubContainer() {
+  const [previousState, setGameState] = useState(gameState);
+
+  function handleChangePlrName(symbol, modName) {
+    setGameState(() => ({ ...previousState, [symbol]: modName }));
+  }
   return (
-    <div id="edit-player-container">
+    <div id="player-board-container">
       <ol id="players">
         <Player
-          name={plr_name1}
-          symbol="O"
-          set_plr_name={set_plr_name1}
-          editMode={isEditing1}
-          changeEditMode={setEditMode1}
+          name={previousState.X}
+          symbol="X"
+          set_plr_name={handleChangePlrName}
         />
         <Player
-          name={plr_name2}
-          symbol="X"
-          set_plr_name={set_plr_name2}
-          editMode={isEditing2}
-          changeEditMode={setEditMode2}
+          name={previousState.O}
+          symbol="O"
+          set_plr_name={handleChangePlrName}
         />
       </ol>
+      <BoardCell
+        gameState={previousState}
+        setGameState={setGameState}
+        gameOverview={gameOverview}
+      />
     </div>
   );
 }

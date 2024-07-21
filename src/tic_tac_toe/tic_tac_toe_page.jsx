@@ -15,7 +15,6 @@ function DeepDivePage() {
         imgAlt="Stylezed atom"
       />
       <div id="top-board-container">
-        <h2>H" text</h2>
         <BoardContainerWithPlayerSubContainer />
       </div>
     </div>

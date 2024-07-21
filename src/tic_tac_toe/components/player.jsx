@@ -1,12 +1,8 @@
 import { useState } from "react";
 
-export default function Player({
-  name,
-  symbol,
-  set_plr_name,
-  editMode,
-  changeEditMode,
-}) {
+export default function Player({ name, symbol, set_plr_name }) {
+  const [editMode, changeEditMode] = useState(false);
+
   let player_name_elm = <span className="player-name">{name}</span>;
 
   if (editMode) {
@@ -16,22 +12,11 @@ export default function Player({
         required
         value={name}
         onChange={(clickEvent) => {
-          set_plr_name(clickEvent.target.value);
+          set_plr_name(symbol, clickEvent.target.value);
         }}
       />
     );
   }
-  function handleButton() {
-    if (!editMode) {
-      changeEditMode(() => !editMode);
-      console.log(" Hello : ", name);
-
-      console.log(player_name_elm);
-    } else {
-      changeEditMode(() => !editMode);
-    }
-  }
-
   return (
     <li>
       {/* todo check to replace the className to class */}
@@ -41,8 +26,7 @@ export default function Player({
       </span>
       <button
         onClick={() => {
-          console.log("From On Click.");
-          return handleButton();
+          changeEditMode((editMode) => !editMode);
         }}
       >
         {editMode ? "Save" : "Edit"}
