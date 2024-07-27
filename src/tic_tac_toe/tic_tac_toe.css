@@ -101,6 +101,10 @@
   text-align: center;
   align-items: center;
 }
+#players li button:hover {
+  background-color: #1b082f;
+  color: #ebe7ef;
+}
 
 /* #players button:hover {
   color: #f8ca31;
@@ -155,4 +159,42 @@ ol {
   transition: color 0.2s;
   padding: 0.5rem 0.25rem 0.25rem 0.25rem;
   text-align: center;
+}
+
+#game-start button.started {
+  color: #ea00ff;
+}
+
+#game-start button:hover {
+  background-color: #1b082f;
+  color: #ebe7ef;
+}
+
+#game-log {
+  max-width: 20rem;
+  color: #3f3b00;
+  list-style: none;
+  margin: 2rem auto;
+  padding: 0;
+  text-align: center;
+  color: #ebe7ef;
+}
+
+#game-over {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(40, 38, 23, 0.95);
+  animation: pop-in 0.5s cubic-bezier(0.68, -0.55, 0.65, 0.52) forwards;
+  z-index: 1;
+}
+#game-over h4 {
+  font-size: 2rem;
 }

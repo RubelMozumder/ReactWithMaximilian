@@ -1,46 +1,50 @@
-const rowLen = 3;
-const colLen = 3;
-const boardCellTmp = [];
-function constructGameboard() {
-  for (let i = 0; i < rowLen; i++) {
-    let colElm = [];
-    boardCellTmp.push(colElm);
-    for (let j = 0; j < colLen; j++) {
-      colElm.push(null);
-    }
-  }
-}
-
-constructGameboard();
-
-export default function boardCell({ gameState, setGameState, gameOverview }) {
+export default function boardCell({
+  gameState,
+  setGameState,
+  gameOverview,
+  boardCellTmp,
+}) {
   function handleSelectSquare(rowInd, colInd) {
-    const preActiveSymbol = "X"; //gameState.activeSymbol;
+    if (!gameOverview.start) {
+      return null;
+    }
+
+    const preActiveSymbol = gameState.activeSymbol;
     const newSymbol = preActiveSymbol === "X" ? "O" : "X";
-    boardCellTmp[rowInd][colInd] = preActiveSymbol;
+    boardCellTmp[rowInd][colInd] = newSymbol;
     //Store Plyers contribution
-    let xxIndArray;
+    let xxIndArray = [];
     if (rowInd === colInd) {
       // Three diagonal cell acquired by a single player
-      xxIndArray = gameOverview[preActiveSymbol].xx;
+      xxIndArray = gameOverview[newSymbol].xx;
       xxIndArray.push(rowInd);
-      gameOverview.winner = xxIndArray.length === 3 ? preActiveSymbol : null;
     }
-    let colIndArray = gameOverview[preActiveSymbol]["row"][rowInd];
-    let rowIndArray = gameOverview[preActiveSymbol]["col"][colInd];
+
+    let colIndArray = gameOverview[newSymbol]["row"][rowInd];
+    let rowIndArray = gameOverview[newSymbol]["col"][colInd];
     colIndArray.push(colInd);
     rowIndArray.push(rowInd);
-    //check three acquaied by a player on a single row or col
+    //check three acquired by a player on a single row or col
     gameOverview.winner =
-      colInd.length === 3 || rowInd.length === 3 ? preActiveSymbol : null;
+      colIndArray.length === 3 ||
+      rowIndArray.length === 3 ||
+      xxIndArray.length === 3
+        ? newSymbol
+        : null;
 
-    const plrTurns = gameOverview[preActiveSymbol].turns;
+    const plrTurns = gameOverview[newSymbol].turns;
 
     plrTurns.push([rowInd, colInd]);
-    setGameState(() => ({ ...gameState, ["activeSymbol"]: newSymbol }));
-    if (plrTurns.length === 9) {
+
+    gameOverview.player_log = [
+      { name: gameState[newSymbol], row: rowInd, col: colInd },
+      ...gameOverview.player_log,
+    ];
+    if (gameOverview.player_log.length === 9) {
       gameOverview.gameOver = true;
     }
+    setGameState(() => ({ ...gameState, ["activeSymbol"]: newSymbol }));
+
     console.log(gameOverview);
   }
   return (
@@ -65,7 +69,16 @@ export default function boardCell({ gameState, setGameState, gameOverview }) {
           ))}
         </ol>
         <div id="game-start">
-          <button onClick={() => null}>START</button>
+          <button
+            className={gameOverview.start ? "started" : null}
+            onClick={() => {
+              gameOverview.start = true;
+              return null;
+            }}
+            disabled={gameOverview.start ? true : false}
+          >
+            {gameOverview.start ? "STARTED" : "START"}
+          </button>
         </div>
       </div>
     </>
