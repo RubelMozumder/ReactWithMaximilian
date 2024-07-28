@@ -1,0 +1,36 @@
+#nav {
+  align-items: center;
+  gap: 2rem;
+  color: #ffff;
+  font-weight: bold;
+  padding: 0 1.5rem;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(40deg, #ea00ff, #ea00ff, #03d5ff, #03d5ff);
+}
+
+#nav a {
+  color: inherit;
+  text-align: center;
+  text-decoration: none;
+  font-style: oblique;
+  padding: 0, 0, 20%, 0;
+}
+
+#site-title {
+  font-size: 4rem;
+}
+
+#nav ul {
+  gap: 1.5rem;
+  margin: 0, 0.5rem;
+  padding: 0, 2rem;
+  margin: 0;
+  display: flex;
+  list-style: none;
+}
+#nav ul li {
+  text-decoration: none;
+  font-size: 1.5rem;
+}
