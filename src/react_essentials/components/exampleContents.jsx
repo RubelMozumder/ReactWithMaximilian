@@ -25,38 +25,21 @@ export function ExampleContents() {
   const [contentName, setContent] = useState(null);
 
   let initDesc = "Choose a React concept name.";
+  const tabTag = ["components", "jsx", "props", "state"]
+
   function handleClickFunc(selectedTopic, setContent) {
     setContent(selectedTopic);
   }
-  console.log("int desc ", initDesc);
   return (
     <>
       <menu id="tab-menu">
-        <TabButton
-          isSelected={contentName === "conponents"}
-          handleClick={() => handleClickFunc("components", setContent)}
-        >
-          Components
-        </TabButton>
-        <TabButton
-          isSelected={contentName === "jsx"}
-          handleClick={() => handleClickFunc("jsx", setContent)}
-        >
-          JSX
-        </TabButton>
-        <TabButton
-          isSelected={contentName === "props"}
-          handleClick={() => handleClickFunc("props", setContent)}
-        >
-          Props
-        </TabButton>
-        <TabButton
-          isSelected={contentName === "state"}
-          handleClick={() => handleClickFunc("state", setContent)}
-        >
-          State
-        </TabButton>
+        {tabTag.map((tag) => (<TabButton key={tag} 
+                                  isSelected={contentName==tag} 
+                                  handleClick={() => handleClickFunc(tag, setContent)} 
+                                  children={tag}/>))}
+        
       </menu>
+      {/* Tab contents */} 
       {!contentName && (
         <TabContent title="" description={initDesc} code=""></TabContent>
       )}

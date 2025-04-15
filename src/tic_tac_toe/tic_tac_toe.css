@@ -1,0 +1,200 @@
+#top-board-container {
+  max-width: 45rem;
+  margin: 3rem auto;
+  padding: 2rem;
+  border-radius: 6px;
+  background-color: transparent;
+  /* background: linear-gradient(#383624, #282617); */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  border-style: solid;
+  border-color: #ea00ff;
+  /* border-color: linear-gradient(40deg, #ea00ff, #ea00ff, #03d5ff, #03d5ff); */
+  position: relative;
+  width: 40rem;
+  height: 40rem;
+}
+#player-board-container {
+  position: relative;
+  display: grid;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+#players {
+  list-style: none;
+  align-items: center;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  padding: 0;
+}
+/* #players li {
+  margin: 0;
+  margin: 0;
+  width: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+} */
+#players li {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  border: 2px solid transparent;
+}
+.player {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  border: 2px solid transparent;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+}
+.player input {
+  font: inherit;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0.5rem;
+  color: #70de79;
+  width: 100%;
+  border: none;
+  animation: pulse-text 2s infinite;
+  background-color: #46432f;
+  text-transform: uppercase;
+  text-align: center;
+}
+.player-name {
+  margin: 0;
+  padding: 0.5;
+  width: 80%;
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  text-align: left;
+  text-overflow: ellipsis;
+  font-size: 1.5rem;
+}
+.player-symbol {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+#players li button {
+  /* padding: 0;
+  justify-content: center;
+  display: block; */
+  width: 3rem;
+  border: none;
+  background: none;
+  color: #c3ba78;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: color 0.2s;
+  padding: 0.5rem 0.25rem 0.25rem 0.25rem;
+  text-align: center;
+  align-items: center;
+}
+#players li button:hover {
+  background-color: #1b082f;
+  color: #ebe7ef;
+}
+
+/* #players button:hover {
+  color: #f8ca31;
+} */
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#game-board {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin: 3rem 0;
+  padding: 1rem 0 2.5rem 0;
+  flex-direction: column;
+}
+#game-board ol {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+#game-board button {
+  width: 8rem;
+  height: 8rem;
+  border: none;
+  background: #aca788;
+  color: #3f3b00;
+  font-size: 5rem;
+  cursor: pointer;
+  font-family: "Caprasimo", cursive;
+  padding: 1rem;
+  position: relative;
+}
+#game-start {
+  color: whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#game-start button {
+  border: none;
+  background: none;
+  color: #c3ba78;
+  font-size: 3rem;
+  cursor: pointer;
+  transition: color 0.2s;
+  padding: 0.5rem 0.25rem 0.25rem 0.25rem;
+  text-align: center;
+}
+
+#game-start button.started {
+  color: #ea00ff;
+}
+
+#game-start button:hover {
+  background-color: #1b082f;
+  color: #ebe7ef;
+}
+
+#game-log {
+  max-width: 20rem;
+  color: #3f3b00;
+  list-style: none;
+  margin: 2rem auto;
+  padding: 0;
+  text-align: center;
+  color: #ebe7ef;
+}
+
+#game-over {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(40, 38, 23, 0.95);
+  animation: pop-in 0.5s cubic-bezier(0.68, -0.55, 0.65, 0.52) forwards;
+  z-index: 1;
+}
+#game-over h4 {
+  font-size: 2rem;
+}

@@ -1,4 +1,13 @@
 {
-    "editor.formatOnPaste": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "github.copilot.editor.enableAutoCompletions": false,
+  "languages": [
+    {
+      "id": "javascript",
+      "extensions": [".js"],
+      "aliases": ["js", "javascript"]
+    }
+  ]
 }
